@@ -13,8 +13,6 @@ enum Seasons {
 }
 
 class SeasonVC: UIViewController {
-    var season: Seasons?
-    
     let temperatureLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .boldSystemFont(ofSize: 100)
@@ -32,10 +30,13 @@ class SeasonVC: UIViewController {
     let citiesList = CitiesList()
     let appDelegate = (UIApplication.shared.delegate as? AppDelegate)!
     let notificationCenter = NotificationCenter.default
+    var season: Seasons?
+    var cityName: String = "Moscow"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubviews([temperatureLabel, cityInfoLabel])
+        cityInfoLabel.text = cityName
         makeConstraints()
         setupGestures()
     }
@@ -46,7 +47,11 @@ class SeasonVC: UIViewController {
     }
     
     @objc func updateTemperature() {
-        if let city = appDelegate.fetchCity(name: "Moscow") {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .decimal
+        if let city = appDelegate.fetchCity(name: cityName) {
             var temperature: Measurement<UnitTemperature>
             switch season! {
                 case .summer:
@@ -58,7 +63,8 @@ class SeasonVC: UIViewController {
                 case .fall:
                     temperature = Measurement(value: city.avg_temp_fall, unit: UnitTemperature.celsius)
             }
-            temperatureLabel.text = "\(temperature.converted(to: .kelvin))"
+            let converted = temperature.converted(to: .celsius)
+            temperatureLabel.text = "\(formatter.string(from: converted.value as NSNumber)!) \(converted.unit.symbol)"
         }
     }
     
