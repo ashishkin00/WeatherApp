@@ -7,29 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9995429629275D9500B0C000 /* CitiesListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995429529275D9500B0C000 /* CitiesListDelegate.swift */; };
+		9995429629275D9500B0C000 /* CitiesListVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995429529275D9500B0C000 /* CitiesListVCExtension.swift */; };
 		999542982927839B00B0C000 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542972927839B00B0C000 /* TabBarController.swift */; };
 		9995429A2927BE2000B0C000 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542992927BE2000B0C000 /* Enums.swift */; };
-		9995429C2927BE6A00B0C000 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995429B2927BE6A00B0C000 /* SettingsVC.swift */; };
-		999542A12927BEEA00B0C000 /* SettingsVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542A02927BEEA00B0C000 /* SettingsVCDelegate.swift */; };
-		999542A32927BF3300B0C000 /* SettingsVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542A22927BF3300B0C000 /* SettingsVCCell.swift */; };
+		9995429C2927BE6A00B0C000 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995429B2927BE6A00B0C000 /* SettingsViewController.swift */; };
+		999542A12927BEEA00B0C000 /* SettingsVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542A02927BEEA00B0C000 /* SettingsVCExtension.swift */; };
+		999542A32927BF3300B0C000 /* SettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542A22927BF3300B0C000 /* SettingsTableCell.swift */; };
+		99A0F0DB292BB3B60021D464 /* AddMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0F0DA292BB3B60021D464 /* AddMenuVC.swift */; };
 		99AC9A16292368D4009CCE40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AC9A15292368D4009CCE40 /* AppDelegate.swift */; };
 		99AC9A18292368D4009CCE40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AC9A17292368D4009CCE40 /* SceneDelegate.swift */; };
 		99AC9A1D292368D4009CCE40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99AC9A1B292368D4009CCE40 /* Main.storyboard */; };
 		99AC9A20292368D4009CCE40 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99AC9A1E292368D4009CCE40 /* DataModel.xcdatamodeld */; };
 		99AC9A22292368D4009CCE40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99AC9A21292368D4009CCE40 /* Assets.xcassets */; };
 		99AC9A25292368D4009CCE40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99AC9A23292368D4009CCE40 /* LaunchScreen.storyboard */; };
-		99AC9A3629238000009CCE40 /* CitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AC9A3529238000009CCE40 /* CitiesList.swift */; };
-		99C15A85292662E9006807B3 /* SeasonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C15A84292662E9006807B3 /* SeasonVC.swift */; };
+		99AC9A3629238000009CCE40 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AC9A3529238000009CCE40 /* CitiesListViewController.swift */; };
+		99C15A85292662E9006807B3 /* SeasonTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C15A84292662E9006807B3 /* SeasonTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9995429529275D9500B0C000 /* CitiesListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CitiesListDelegate.swift; path = CitiesList/CitiesListDelegate.swift; sourceTree = SOURCE_ROOT; };
+		9995429529275D9500B0C000 /* CitiesListVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CitiesListVCExtension.swift; path = CitiesList/CitiesListVCExtension.swift; sourceTree = SOURCE_ROOT; };
 		999542972927839B00B0C000 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		999542992927BE2000B0C000 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		9995429B2927BE6A00B0C000 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		999542A02927BEEA00B0C000 /* SettingsVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCDelegate.swift; sourceTree = "<group>"; };
-		999542A22927BF3300B0C000 /* SettingsVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCCell.swift; sourceTree = "<group>"; };
+		9995429B2927BE6A00B0C000 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		999542A02927BEEA00B0C000 /* SettingsVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCExtension.swift; sourceTree = "<group>"; };
+		999542A22927BF3300B0C000 /* SettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
+		99A0F0DA292BB3B60021D464 /* AddMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuVC.swift; sourceTree = "<group>"; };
 		99AC9A12292368D4009CCE40 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99AC9A15292368D4009CCE40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99AC9A17292368D4009CCE40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,8 +40,8 @@
 		99AC9A21292368D4009CCE40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99AC9A24292368D4009CCE40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99AC9A26292368D4009CCE40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99AC9A3529238000009CCE40 /* CitiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesList.swift; sourceTree = "<group>"; };
-		99C15A84292662E9006807B3 /* SeasonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonVC.swift; sourceTree = "<group>"; };
+		99AC9A3529238000009CCE40 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
+		99C15A84292662E9006807B3 /* SeasonTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,38 +58,38 @@
 		9995429D2927BE8C00B0C000 /* CitiesList */ = {
 			isa = PBXGroup;
 			children = (
-				99AC9A3529238000009CCE40 /* CitiesList.swift */,
-				9995429529275D9500B0C000 /* CitiesListDelegate.swift */,
+				99AC9A3529238000009CCE40 /* CitiesListViewController.swift */,
+				9995429529275D9500B0C000 /* CitiesListVCExtension.swift */,
 			);
 			path = CitiesList;
-			sourceTree = "<group>";
-		};
-		9995429E2927BE9D00B0C000 /* SeasonVC */ = {
-			isa = PBXGroup;
-			children = (
-				99C15A84292662E9006807B3 /* SeasonVC.swift */,
-			);
-			path = SeasonVC;
 			sourceTree = "<group>";
 		};
 		9995429F2927BEAB00B0C000 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
 				999542972927839B00B0C000 /* TabBarController.swift */,
+				99C15A84292662E9006807B3 /* SeasonTab.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		99A2283E292B9E4900638750 /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				9995429B2927BE6A00B0C000 /* SettingsViewController.swift */,
+				999542A02927BEEA00B0C000 /* SettingsVCExtension.swift */,
+				999542A22927BF3300B0C000 /* SettingsTableCell.swift */,
+			);
+			path = SettingsVC;
 			sourceTree = "<group>";
 		};
 		99AC9A09292368D3009CCE40 = {
 			isa = PBXGroup;
 			children = (
-				999542992927BE2000B0C000 /* Enums.swift */,
+				99A0F0DA292BB3B60021D464 /* AddMenuVC.swift */,
 				9995429F2927BEAB00B0C000 /* TabBar */,
-				9995429E2927BE9D00B0C000 /* SeasonVC */,
 				9995429D2927BE8C00B0C000 /* CitiesList */,
-				9995429B2927BE6A00B0C000 /* SettingsVC.swift */,
-				999542A02927BEEA00B0C000 /* SettingsVCDelegate.swift */,
-				999542A22927BF3300B0C000 /* SettingsVCCell.swift */,
+				99A2283E292B9E4900638750 /* SettingsVC */,
 				99AC9A14292368D4009CCE40 /* WeatherApp */,
 				99AC9A13292368D4009CCE40 /* Products */,
 			);
@@ -104,6 +106,7 @@
 		99AC9A14292368D4009CCE40 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				999542992927BE2000B0C000 /* Enums.swift */,
 				99AC9A15292368D4009CCE40 /* AppDelegate.swift */,
 				99AC9A17292368D4009CCE40 /* SceneDelegate.swift */,
 				99AC9A1B292368D4009CCE40 /* Main.storyboard */,
@@ -186,17 +189,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99C15A85292662E9006807B3 /* SeasonVC.swift in Sources */,
+				99C15A85292662E9006807B3 /* SeasonTab.swift in Sources */,
+				99A0F0DB292BB3B60021D464 /* AddMenuVC.swift in Sources */,
 				99AC9A20292368D4009CCE40 /* DataModel.xcdatamodeld in Sources */,
-				9995429629275D9500B0C000 /* CitiesListDelegate.swift in Sources */,
-				999542A32927BF3300B0C000 /* SettingsVCCell.swift in Sources */,
+				9995429629275D9500B0C000 /* CitiesListVCExtension.swift in Sources */,
+				999542A32927BF3300B0C000 /* SettingsTableCell.swift in Sources */,
 				99AC9A16292368D4009CCE40 /* AppDelegate.swift in Sources */,
-				999542A12927BEEA00B0C000 /* SettingsVCDelegate.swift in Sources */,
-				99AC9A3629238000009CCE40 /* CitiesList.swift in Sources */,
+				999542A12927BEEA00B0C000 /* SettingsVCExtension.swift in Sources */,
+				99AC9A3629238000009CCE40 /* CitiesListViewController.swift in Sources */,
 				999542982927839B00B0C000 /* TabBarController.swift in Sources */,
 				9995429A2927BE2000B0C000 /* Enums.swift in Sources */,
 				99AC9A18292368D4009CCE40 /* SceneDelegate.swift in Sources */,
-				9995429C2927BE6A00B0C000 /* SettingsVC.swift in Sources */,
+				9995429C2927BE6A00B0C000 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +360,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ashishkin.WeatherApp.WeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashishkin.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -384,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ashishkin.WeatherApp.WeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashishkin.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

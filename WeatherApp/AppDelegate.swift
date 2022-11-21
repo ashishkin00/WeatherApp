@@ -72,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             city.avg_temp_summer = 30
         } else {
             let newCity = Cities(context: context)
-            newCity.id = UUID()
             newCity.name = name
             newCity.size = size.toString
             newCity.avg_temp_fall = 10

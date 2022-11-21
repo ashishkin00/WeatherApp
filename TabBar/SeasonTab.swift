@@ -8,11 +8,7 @@ extension UIView {
     }
 }
 
-enum Seasons {
-    case summer, winter, autumn, fall
-}
-
-class SeasonVC: UIViewController {
+class SeasonTab: UIViewController {
     let temperatureLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .boldSystemFont(ofSize: 100)
@@ -27,15 +23,15 @@ class SeasonVC: UIViewController {
         return label
     }()
     
-    let citiesList = CitiesList()
     let appDelegate = (UIApplication.shared.delegate as? AppDelegate)!
     let notificationCenter = NotificationCenter.default
-    var season: Seasons?
     var cityName: String = "Moscow"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubviews([temperatureLabel, cityInfoLabel])
+        view.backgroundColor = .white
+        view.addSubview(temperatureLabel)
+        view.addSubview(cityInfoLabel)
         cityInfoLabel.text = cityName
         makeConstraints()
         setupGestures()
@@ -47,34 +43,33 @@ class SeasonVC: UIViewController {
     }
     
     @objc func updateTemperature() {
-        let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 2
-        formatter.numberStyle = .decimal
-        if let city = appDelegate.fetchCity(name: cityName) {
-            var temperature: Measurement<UnitTemperature>
-            switch season! {
-                case .summer:
-                    temperature = Measurement(value: city.avg_temp_summer, unit: UnitTemperature.celsius)
-                case .winter:
-                    temperature = Measurement(value: city.avg_temp_winter, unit: UnitTemperature.celsius)
-                case .autumn:
-                    temperature = Measurement(value: city.avg_temp_autumn, unit: UnitTemperature.celsius)
-                case .fall:
-                    temperature = Measurement(value: city.avg_temp_fall, unit: UnitTemperature.celsius)
-            }
-            let converted = temperature.converted(to: .celsius)
-            temperatureLabel.text = "\(formatter.string(from: converted.value as NSNumber)!) \(converted.unit.symbol)"
-        }
+//        let formatter = NumberFormatter()
+//        formatter.minimumFractionDigits = 0
+//        formatter.maximumFractionDigits = 2
+//        formatter.numberStyle = .decimal
+//        if let city = appDelegate.fetchCity(name: cityName) {
+//            var temperature: Measurement<UnitTemperature>
+//            switch season! {
+//                case .summer:
+//                    temperature = Measurement(value: city.avg_temp_summer, unit: UnitTemperature.celsius)
+//                case .winter:
+//                    temperature = Measurement(value: city.avg_temp_winter, unit: UnitTemperature.celsius)
+//                case .autumn:
+//                    temperature = Measurement(value: city.avg_temp_autumn, unit: UnitTemperature.celsius)
+//                case .fall:
+//                    temperature = Measurement(value: city.avg_temp_fall, unit: UnitTemperature.celsius)
+//            }
+//            let converted = temperature.converted(to: .celsius)
+//            temperatureLabel.text = "\(formatter.string(from: converted.value as NSNumber)!) \(converted.unit.symbol)"
+//        }
     }
     
     func setupGestures() {
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentSettingsView)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentCitiesList)))
     }
     
-    @objc func presentSettingsView() {
-        citiesList.modalPresentationStyle = .overFullScreen
-        present(citiesList, animated: true)
+    @objc func presentCitiesList() {
+        show(CitiesList())
     }
     
     func makeConstraints() {

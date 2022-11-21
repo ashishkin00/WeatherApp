@@ -4,8 +4,14 @@ import UIKit
 extension CitiesList: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let result = appDelegate.fetchAllValuesInSection(key: "name", ascending: true) {
+            if result.count > 0 {
+                splashLabel.isHidden = true
+            } else {
+                splashLabel.isHidden = false
+            }
             return result.count
         }
+        splashLabel.isHidden = false
         return 0
     }
     
@@ -17,9 +23,6 @@ extension CitiesList: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let settingsVC = SettingsVC()
-        settingsVC.modalPresentationStyle = .overFullScreen
-        settingsVC.modalTransitionStyle = .crossDissolve
-        present(settingsVC, animated: true)
+        show(CitySettingsVC())
     }
 }

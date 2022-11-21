@@ -1,4 +1,4 @@
-@objc enum CitySizes: Int {
+@objc enum CitySizes: Int, CaseIterable {
     case big, medium, small
     var toString: String {
         switch self {
