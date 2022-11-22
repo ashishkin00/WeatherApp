@@ -82,6 +82,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         saveContext()
     }
     
+    func removeCity(name: String) -> Bool {
+        let context = persistentContainer.viewContext
+        if let city = fetchCity(name: name) {
+            context.delete(city)
+            saveContext()
+            return true
+        }
+        return false
+    }
+    
     func fetchCity(name: String) -> Cities? {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cities")

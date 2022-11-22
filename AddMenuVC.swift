@@ -68,7 +68,12 @@ class AddMenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     @objc private func didPressDoneButton() {
-        appDelegate.addCity(name: textField.text!, size: CitySizes.allCases[picker.selectedRow(inComponent: 0)])
+        if let name = textField.text, name.count > 0 {
+            appDelegate.addCity(name: name, size: CitySizes.allCases[picker.selectedRow(inComponent: 0)])
+            dismiss(animated: true)
+        } else {
+            // throw error
+        }
     }
     
     private func makeConstraints() {

@@ -42,6 +42,7 @@ class CitySettingsVC: UIViewController {
     }()
     
     var selectedIndex: Int?
+    let appDelegate = (UIApplication.shared.delegate as? AppDelegate)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,8 @@ class CitySettingsVC: UIViewController {
         backButton.addTarget(self, action: #selector(didPressBackButton), for: .touchUpInside)
 
         view.addSubview(removeButton)
+        removeButton.addTarget(self, action: #selector(didPressRemoveButton), for: .touchUpInside)
+        
         view.addSubview(cityName)
         view.addSubview(editbutton)
         
@@ -64,6 +67,17 @@ class CitySettingsVC: UIViewController {
     
     @objc func didPressBackButton() {
         dispose()
+    }
+    
+    @objc func didPressRemoveButton() {
+        if let name = cityName.text, name.count > 0 {
+            if appDelegate.removeCity(name: name) {
+                print("deleted")
+                dispose()
+            } else {
+                print("error")
+            }
+        }
     }
     
     func makeConstraints() {

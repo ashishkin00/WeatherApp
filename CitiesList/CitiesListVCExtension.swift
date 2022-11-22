@@ -23,6 +23,8 @@ extension CitiesList: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        show(CitySettingsVC())
+        let view = CitySettingsVC()
+        view.cityName.text = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        show(view)
     }
 }

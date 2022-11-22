@@ -10,9 +10,9 @@
 		9995429629275D9500B0C000 /* CitiesListVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995429529275D9500B0C000 /* CitiesListVCExtension.swift */; };
 		999542982927839B00B0C000 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542972927839B00B0C000 /* TabBarController.swift */; };
 		9995429A2927BE2000B0C000 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542992927BE2000B0C000 /* Enums.swift */; };
-		9995429C2927BE6A00B0C000 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995429B2927BE6A00B0C000 /* SettingsViewController.swift */; };
-		999542A12927BEEA00B0C000 /* SettingsVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542A02927BEEA00B0C000 /* SettingsVCExtension.swift */; };
-		999542A32927BF3300B0C000 /* SettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542A22927BF3300B0C000 /* SettingsTableCell.swift */; };
+		9995429C2927BE6A00B0C000 /* CitySettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995429B2927BE6A00B0C000 /* CitySettingsVC.swift */; };
+		999542A12927BEEA00B0C000 /* CitySettingsVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542A02927BEEA00B0C000 /* CitySettingsVCExtension.swift */; };
+		999542A32927BF3300B0C000 /* CitySettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999542A22927BF3300B0C000 /* CitySettingsCell.swift */; };
 		99A0F0DB292BB3B60021D464 /* AddMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0F0DA292BB3B60021D464 /* AddMenuVC.swift */; };
 		99AC9A16292368D4009CCE40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AC9A15292368D4009CCE40 /* AppDelegate.swift */; };
 		99AC9A18292368D4009CCE40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AC9A17292368D4009CCE40 /* SceneDelegate.swift */; };
@@ -28,9 +28,9 @@
 		9995429529275D9500B0C000 /* CitiesListVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CitiesListVCExtension.swift; path = CitiesList/CitiesListVCExtension.swift; sourceTree = SOURCE_ROOT; };
 		999542972927839B00B0C000 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		999542992927BE2000B0C000 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		9995429B2927BE6A00B0C000 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		999542A02927BEEA00B0C000 /* SettingsVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCExtension.swift; sourceTree = "<group>"; };
-		999542A22927BF3300B0C000 /* SettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
+		9995429B2927BE6A00B0C000 /* CitySettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySettingsVC.swift; sourceTree = "<group>"; };
+		999542A02927BEEA00B0C000 /* CitySettingsVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySettingsVCExtension.swift; sourceTree = "<group>"; };
+		999542A22927BF3300B0C000 /* CitySettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySettingsCell.swift; sourceTree = "<group>"; };
 		99A0F0DA292BB3B60021D464 /* AddMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuVC.swift; sourceTree = "<group>"; };
 		99AC9A12292368D4009CCE40 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99AC9A15292368D4009CCE40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,9 +76,9 @@
 		99A2283E292B9E4900638750 /* SettingsVC */ = {
 			isa = PBXGroup;
 			children = (
-				9995429B2927BE6A00B0C000 /* SettingsViewController.swift */,
-				999542A02927BEEA00B0C000 /* SettingsVCExtension.swift */,
-				999542A22927BF3300B0C000 /* SettingsTableCell.swift */,
+				9995429B2927BE6A00B0C000 /* CitySettingsVC.swift */,
+				999542A02927BEEA00B0C000 /* CitySettingsVCExtension.swift */,
+				999542A22927BF3300B0C000 /* CitySettingsCell.swift */,
 			);
 			path = SettingsVC;
 			sourceTree = "<group>";
@@ -193,14 +193,14 @@
 				99A0F0DB292BB3B60021D464 /* AddMenuVC.swift in Sources */,
 				99AC9A20292368D4009CCE40 /* DataModel.xcdatamodeld in Sources */,
 				9995429629275D9500B0C000 /* CitiesListVCExtension.swift in Sources */,
-				999542A32927BF3300B0C000 /* SettingsTableCell.swift in Sources */,
+				999542A32927BF3300B0C000 /* CitySettingsCell.swift in Sources */,
 				99AC9A16292368D4009CCE40 /* AppDelegate.swift in Sources */,
-				999542A12927BEEA00B0C000 /* SettingsVCExtension.swift in Sources */,
+				999542A12927BEEA00B0C000 /* CitySettingsVCExtension.swift in Sources */,
 				99AC9A3629238000009CCE40 /* CitiesListViewController.swift in Sources */,
 				999542982927839B00B0C000 /* TabBarController.swift in Sources */,
 				9995429A2927BE2000B0C000 /* Enums.swift in Sources */,
 				99AC9A18292368D4009CCE40 /* SceneDelegate.swift in Sources */,
-				9995429C2927BE6A00B0C000 /* SettingsViewController.swift in Sources */,
+				9995429C2927BE6A00B0C000 /* CitySettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
