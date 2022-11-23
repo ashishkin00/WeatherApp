@@ -92,6 +92,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
+    func setTemperature(name: String, temp: Double, month: Months) {
+        if let city = fetchCity(name: name) {
+            switch month {
+                case .january:
+                    city.january = temp
+                case .february:
+                    city.february = temp
+                case .march:
+                    city.march = temp
+                case .april:
+                    city.april = temp
+                case .may:
+                    city.may = temp
+                case .june:
+                    city.june = temp
+                case .july:
+                    city.july = temp
+                case .august:
+                    city.august = temp
+                case .september:
+                    city.september = temp
+                case .october:
+                    city.october = temp
+                case .november:
+                    city.november = temp
+                case .december:
+                    city.december = temp
+            }
+            saveContext()
+        } else {
+            print("unable to find city")
+        }
+    }
+    
     func fetchCity(name: String) -> Cities? {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cities")

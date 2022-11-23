@@ -1,17 +1,11 @@
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class CSTableViewCell: UITableViewCell {
     var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
-        contentView.addSubview(label)
-        makeConstraints()
-    }
     
     func makeConstraints() {
         NSLayoutConstraint.activate([
@@ -20,7 +14,14 @@ class CollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(label)
+        makeConstraints()
+    }
+    
     required init?(coder: NSCoder) {
+        super.init(coder: coder)
         fatalError("init(coder:) has not been implemented")
     }
 }

@@ -1,21 +1,6 @@
 import UIKit
 
-enum Months: String, CaseIterable {
-    case january = "January"
-    case february = "February"
-    case march = "March"
-    case april = "April"
-    case may = "May"
-    case june = "June"
-    case july = "July"
-    case august = "August"
-    case september = "September"
-    case october = "October"
-    case november = "November"
-    case december = "December"
-}
-
-extension CitySettingsVC: UITableViewDataSource, UITableViewDelegate {
+extension CitySettings: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Months.allCases.count
     }
@@ -28,7 +13,15 @@ extension CitySettingsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
-        print("pressed \(String(describing: selectedIndex))")
+        let menu = MonthMenu()
+        menu.delegate = self
+        menu.cityname = cityName.text
+        menu.month = Months(rawValue: (tableView.cellForRow(at: indexPath)?.textLabel?.text)!)
+        let nav = UINavigationController(rootViewController: menu)
+        nav.modalPresentationStyle = .formSheet
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.medium()]
+            present(nav, animated: true)
+        }
     }
 }

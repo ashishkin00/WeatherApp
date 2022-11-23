@@ -1,6 +1,9 @@
 import UIKit
 
 class AddMenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var delegate: GenericTableView?
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -11,10 +14,6 @@ class AddMenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         pickerData[row].toString
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
     }
     
     let doneButton: UIButton = {
@@ -53,16 +52,12 @@ class AddMenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(backButton)
-//        view.addSubview(doneButton)
-//        view.addSubview(textField)
-//        view.addSubview(picker)
+        view.backgroundColor = .systemBackground
         view.addSubview(stackView)
         stackView.addArrangedSubview(textField)
         stackView.addArrangedSubview(picker)
         picker.delegate = self
         picker.dataSource = self
-        view.backgroundColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(didPressDoneButton))
         makeConstraints()
     }
@@ -70,6 +65,7 @@ class AddMenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
     @objc private func didPressDoneButton() {
         if let name = textField.text, name.count > 0 {
             appDelegate.addCity(name: name, size: CitySizes.allCases[picker.selectedRow(inComponent: 0)])
+            delegate?.reloadTableData()
             dismiss(animated: true)
         } else {
             // throw error
