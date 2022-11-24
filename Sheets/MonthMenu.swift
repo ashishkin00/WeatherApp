@@ -9,9 +9,9 @@ class MonthMenu: UIViewController {
     let textField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Temperature"
+        textField.placeholder = "Temperature in C°"
         textField.borderStyle = .roundedRect
-        textField.font = .systemFont(ofSize: 46)
+        textField.font = .systemFont(ofSize: 26)
         return textField
     }()
     
