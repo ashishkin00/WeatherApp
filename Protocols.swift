@@ -2,7 +2,6 @@ import UIKit
 
 protocol GenericTableView {
     var tableView: UITableView { get set }
-    var delegate: GenericTableView? { get set }
 }
 
 extension GenericTableView {

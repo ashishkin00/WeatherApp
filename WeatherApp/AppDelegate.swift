@@ -53,11 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Core Data Saving support
     
-    func fetchAllValuesInSection(key: String, ascending: Bool) -> [Cities]? {
+    func fetchAllValuesInSection(key: String, ascending: Bool) -> [City]? {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cities")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: key, ascending: ascending)]
-        let result = try? context.fetch(fetchRequest) as? [Cities]
+        let result = try? context.fetch(fetchRequest) as? [City]
         return result
     }
     
@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             city.avg_temp_winter = 20
             city.avg_temp_summer = 30
         } else {
-            let newCity = Cities(context: context)
+            let newCity = City(context: context)
             newCity.name = name
             newCity.size = size.toString
             newCity.avg_temp_fall = 10
@@ -126,11 +126,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func fetchCity(name: String) -> Cities? {
+    func fetchCity(name: String) -> City? {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cities")
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-        return try? context.fetch(fetchRequest).first as? Cities
+        return try? context.fetch(fetchRequest).first as? City
     }
     
     func saveContext () {

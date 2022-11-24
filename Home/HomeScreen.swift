@@ -4,7 +4,6 @@ class HomeScreen: UIViewController {
     let summerTemp: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "?"
-//        label.font = .systemFont(ofSize: 40)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -13,7 +12,6 @@ class HomeScreen: UIViewController {
     let winterTemp: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "?"
-//        label.font = .systemFont(ofSize: 40)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -22,7 +20,6 @@ class HomeScreen: UIViewController {
     let fallTemp: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "?"
-//        label.font = .systemFont(ofSize: 40)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -31,7 +28,6 @@ class HomeScreen: UIViewController {
     let autumnTemp: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "?"
-//        label.font = .systemFont(ofSize: 40)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -40,7 +36,6 @@ class HomeScreen: UIViewController {
     let name: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "Name"
-        label.font = .systemFont(ofSize: 40)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,7 +44,6 @@ class HomeScreen: UIViewController {
     let citySize: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "size"
-        label.font = .systemFont(ofSize: 24)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,24 +51,28 @@ class HomeScreen: UIViewController {
     
     let winterText: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Winter"
         return label
     }()
     
     let autumnText: UILabel = {
        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Autumn"
         return label
     }()
     
     let summerText: UILabel = {
        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Summer"
         return label
     }()
     
     let fallText: UILabel = {
        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Fall"
         return label
     }()
@@ -82,6 +80,7 @@ class HomeScreen: UIViewController {
     let stackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .equalSpacing
         stackView.axis = .horizontal
         return stackView
     }()
@@ -96,8 +95,5 @@ class HomeScreen: UIViewController {
         return label
     }()
     
-    var cityName: String? = UserDefaults.standard.string(forKey: "cityName")
-    var strategy: TemperatureStrategy = CelsiusStrategy()
-    var defaults = UserDefaults.standard
-    let appDelegate = (UIApplication.shared.delegate as? AppDelegate)!
+    var city: City?
 }
