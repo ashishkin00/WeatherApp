@@ -1,8 +1,7 @@
 import UIKit
 
 class SomeMenu: UIViewController {
-    
-    var delegate: CitySettings?
+
     var cityname: String?
     
     let textField: UITextField = {
@@ -14,27 +13,42 @@ class SomeMenu: UIViewController {
         return textField
     }()
     
+    let doneButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.configuration = .plain()
+        button.setTitle("Done", for: .normal)
+        return button
+    }()
+    
     let appDelegate = (UIApplication.shared.delegate as? AppDelegate)!
+    
+    convenience init(name: String?) {
+        self.init()
+        cityname = name
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(textField)
+        view.addSubview(doneButton)
         view.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(didPressDoneButton))
+        doneButton.addTarget(self, action: #selector(didPressDoneButton), for: .touchUpInside)
         makeConstraints()
     }
     
     @objc private func didPressDoneButton() {
-        if let name = cityname, let city = appDelegate.fetchCity(name: name) {
-            city.name = self.textField.text
-            appDelegate.saveContext()
-            delegate?.cityName.text = self.textField.text
-            dismiss(animated: true)
+        if let city = appDelegate.fetchCity(name: cityname) {
+            city.name = textField.text
+            dispose()
         }
     }
     
     private func makeConstraints() {
         NSLayoutConstraint.activate([
+            doneButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            doneButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
             textField.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor),
             textField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),

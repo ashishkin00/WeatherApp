@@ -42,13 +42,42 @@ class CitySettings: UIViewController, GenericTableView {
         return button
     }()
     
+    let appDelegate = (UIApplication.shared.delegate as? AppDelegate)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
         setupSubviews()
+        setupActions()
         makeConstraints()
+    }
+    
+    convenience init(name: String) {
+        self.init()
+        cityName.text = name
+    }
+    
+    private func setupActions() {
+        removeButton.addTarget(self, action: #selector(didPressRemoveButton), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(didPressBackButton), for: .touchUpInside)
+        editbutton.addTarget(self, action: #selector(didPressEditButton), for: .touchUpInside)
+    }
+    
+    @objc private func didPressBackButton() {
+        dispose()
+    }
+    
+    @objc private func didPressEditButton() {
+        present(SomeMenu(name: cityName.text))
+    }
+    
+    @objc private func didPressRemoveButton() {
+        if let name = cityName.text {
+            appDelegate.removeCity(name: name)
+            dispose()
+        }
     }
     
     func setupSubviews() {

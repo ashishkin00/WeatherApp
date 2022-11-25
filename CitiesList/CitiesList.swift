@@ -4,6 +4,7 @@ import CoreData
 class CitiesList: UIViewController, GenericTableView {
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -34,27 +35,55 @@ class CitiesList: UIViewController, GenericTableView {
         return label
     }()
     
+    let appDelegate = (UIApplication.shared.delegate as? AppDelegate)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        setupSubviews()
+        setupActions()
         makeConstraints()
     }
     
-    func setupSubviews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
+    private func setupActions() {
+        backButton.addTarget(self, action: #selector(didPressBackButton), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(didPressAddButton), for: .touchUpInside)
+    }
+    
+    @objc func didPressAddButton() {
+        let view = AddMenuVC()
+        view.modalPresentationStyle = .fullScreen
+        present(view, animated: true)
+    }
+    
+    @objc private func didPressBackButton() {
+        dispose()
+    }
+    
+    private func updateUI() {
+        tableView.reloadData()
+        if tableView.numberOfRows(inSection: 0) == 0 {
+            splashLabel.isHidden = false
+        } else {
+            splashLabel.isHidden = true
+        }
+    }
+    
+    private func setupSubviews() {
         view.addSubview(tableView)
         view.addSubview(backButton)
         view.addSubview(addButton)
         view.addSubview(splashLabel)
     }
     
-    func hideSplash(_ state: Bool) {
-        splashLabel.isHidden = state
-    }
-    
-    func makeConstraints() {
+    private func makeConstraints() {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

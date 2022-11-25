@@ -1,5 +1,17 @@
 import UIKit
 
+extension Array where Element == Double {
+    func avg() -> Double {
+        return (self.reduce(0, +) / Double(self.count)).rounded()
+    }
+}
+
+extension Collection where Indices.Iterator.Element == Index {
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
 extension UIViewController {
     func dispose() {
         let transition = CATransition()

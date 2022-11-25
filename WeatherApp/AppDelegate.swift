@@ -53,12 +53,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Core Data Saving support
     
-    func fetchAllValuesInSection(key: String, ascending: Bool) -> [City]? {
+    func fetchAllNames(ascending: Bool) -> [String] {
+        var array: [String] = []
         let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cities")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: key, ascending: ascending)]
-        let result = try? context.fetch(fetchRequest) as? [City]
-        return result
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "City")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: ascending)]
+        if let result = try? context.fetch(fetchRequest) as? [City] {
+            for city in result {
+                if let name = city.name {
+                    array.append(name)
+                }
+            }
+        }
+        return array
     }
     
     func addCity(name: String, size: CitySizes) {
@@ -66,30 +73,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let city = fetchCity(name: name) {
             city.name = name
             city.size = size.toString
-            city.avg_temp_fall = 10
-            city.avg_temp_autumn = 15
-            city.avg_temp_winter = 20
-            city.avg_temp_summer = 30
         } else {
             let newCity = City(context: context)
             newCity.name = name
             newCity.size = size.toString
-            newCity.avg_temp_fall = 10
-            newCity.avg_temp_autumn = 15
-            newCity.avg_temp_winter = 20
-            newCity.avg_temp_summer = 30
         }
         saveContext()
     }
     
-    func removeCity(name: String) -> Bool {
+    func removeCity(name: String) {
         let context = persistentContainer.viewContext
         if let city = fetchCity(name: name) {
             context.delete(city)
             saveContext()
-            return true
         }
-        return false
     }
     
     func setTemperature(name: String, temp: Double, month: Months) {
@@ -126,11 +123,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func fetchCity(name: String) -> City? {
-        let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cities")
-        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-        return try? context.fetch(fetchRequest).first as? City
+    func fetchCity(name: String?) -> City? {
+        if let name = name {
+            let context = persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "City")
+            fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+            return try? context.fetch(fetchRequest).first as? City
+        }
+        return nil
     }
     
     func saveContext () {

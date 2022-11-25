@@ -33,14 +33,6 @@ class HomeScreen: UIViewController {
         return label
     }()
     
-    let name: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.text = "Name"
-        label.textColor = .label
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     let citySize: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "size"
@@ -85,6 +77,13 @@ class HomeScreen: UIViewController {
         return stackView
     }()
     
+    let picker: UIPickerView = {
+        let picker = UIPickerView(frame: .zero)
+        picker.contentMode = .center
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        return picker
+    }()
+    
     let splashLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -95,5 +94,7 @@ class HomeScreen: UIViewController {
         return label
     }()
     
-    var city: City?
+    var cities: [[String]] = [[], []]
+    var strategy: TemperatureStrategy = CelsiusStrategy()
+    let appDelegate = (UIApplication.shared.delegate as? AppDelegate)!
 }
